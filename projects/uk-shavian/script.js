@@ -1,14 +1,102 @@
-var 
-    small = 'бвгґджзклмнпрстфхцчшщ',
-    // big = small.toUpperCase(),
+// Обмін кльучів на змінну в објектах
+function swap(object)
+{
+    var re_object = {};
+    for(key in object){
+        re_object[object[key]] = key;
+    }
+    return re_object;
+}
+
+// З кирилицьи на шовицьу
+function shavian()
+{
+    var result = document.getElementById('send').value;
+
+    // Розкласти јотовані на мјакиј знак і голосну
+    for (soft in u_softs)
+    {
+        result = result.replace(new RegExp('([' + small_c + big_c + '])' + soft, 'g'), "$1" + u_softs[soft]);
+    }
+    
+    result = result
+        // Прибирати апострофи
+        .replace(new RegExp('[' + apostrophes + ']', 'g'), '')
+        // Позначити великі букви
+        .replace(new RegExp('([' + bigs + '])', 'g'), '·' + '$1')
+        .toLowerCase()
+        ;
+
+    // Основна перебуква
+    for (letter in u_letters)
+    {
+        result = result.replace(new RegExp(letter, 'g'), u_letters[letter]);
+    }
+
+    // Рьадки
+    document.getElementById('result').innerHTML = result.replace(/\n\r?/g, '<br />');
+}
+
+// З шовицьи на кирилицьу
+function ukrainian()
+{
+    var result = document.getElementById('send').value;
+
+    // Основна заміна
+    for (letter in s_letters)
+    {
+        result = result.replace(new RegExp(letter, 'g'), s_letters[letter]);
+    }
+
+    // Апострофнути
+    for (iot in u_softs)
+    {
+        result = result.replace(new RegExp('([' + small_c + '])' + iot, 'g'), "$1" + apostrophe + iot);
+    }
+
+    // Јотација
+    for (soft in u_iotation) 
+    {
+        result = result.replace(new RegExp(soft, 'g'), u_iotation[soft]);
+    }
+
+    document.getElementById('result').innerHTML = result
+        // Великі букви
+        .replace(new RegExp('·([' + smalls + '])', 'g'), function(match) { return match[1].toUpperCase() })
+        // Рьадки
+        .replace(/\n\r?/g, '<br />');
+}
+
+var
+    small_c = 'бвгґджзклмнпрстфхцчшщџѕ',
+    small_v = 'аяеєіїийјоую',
+    smalls = small_c + small_v,
+
+    big_c = small_c.toUpperCase(),
+    bigs = smalls.toUpperCase(),
+
+    apostrophe = 'ʼ',
     apostrophes = '\'ʼ`’',
-    soft = {
+
+    u_softs = {
         'я' : 'ьа',
         'ю' : 'ьу',
         'є' : 'ье',
         'ї' : 'ьі',
     },
-    ltr = {
+    u_iotation = swap(u_softs),
+    
+    u_letters = {
+        // disounds
+        'щ' : '𐑖𐑗',
+        'я' : '𐑘𐑨',
+        'ю' : '𐑘𐑵',
+        'є' : '𐑘𐑧',
+        'ї' : '𐑘𐑰',
+        // vuk
+        'џ' : '𐑡',
+        'ѕ' : '𐑞',
+        'ј' : '𐑘',
         // clear
         'а' : '𐑨',
         'б' : '𐑚',
@@ -38,32 +126,8 @@ var
         'ч' : '𐑗',
         'ш' : '𐑖',
         'ь' : '𐑢',
-        // disounds
-        'щ' : '𐑖𐑗',
-        'я' : '𐑘𐑨',
-        'ю' : '𐑘𐑵',
-        'є' : '𐑘𐑧',
-        'ї' : '𐑘𐑰',
-        // vuk
-        'џ' : '𐑡',
-        'ѕ' : '𐑞',
-        'ј' : '𐑘',
-    }
+    },
+    s_letters = swap(u_letters)
     ;
 
-function shavian()
-{
-    var res = document.getElementById('send').value.toLowerCase();
-
-    for (i in soft) {
-        res = res.replace(new RegExp('([' + small /*+ big*/ + '])' + i, 'g'), "$1" + soft[i]);
-    }
-
-    res = res.replace(new RegExp('[' + apostrophes + ']', 'g'), '');
-
-    for (l in ltr)
-    {
-        res = res.replace(new RegExp(l, 'g'), ltr[l]);
-    }
-    document.getElementById('result').innerHTML = res.replace(/\n\r?/g, '<br />');
-}
+    // console.log(s_letters);
