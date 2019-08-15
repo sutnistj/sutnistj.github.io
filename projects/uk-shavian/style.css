@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Noto Sans Shavian';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/ea/notosansshavian/v1/NotoSansShavian-Regular.eot);
+    src: url(https://fonts.gstatic.com/ea/notosansshavian/v1/NotoSansShavian-Regular.eot?#iefix) format('embedded-opentype'),
+         url(https://fonts.gstatic.com/ea/notosansshavian/v1/NotoSansShavian-Regular.woff2) format('woff2'),
+         url(https://fonts.gstatic.com/ea/notosansshavian/v1/NotoSansShavian-Regular.woff) format('woff'),
+         url(https://fonts.gstatic.com/ea/notosansshavian/v1/NotoSansShavian-Regular.ttf) format('truetype');
+  }
+
+#result { 
+    font-family: 'Noto Sans Shavian', sans-serif;
+    margin-top: 25px;
+}
+
+#main {
+    display: table;
+    margin: auto;
+    width: 1000px;
+}
+
+button {display: block; }
+
+#send,
+#result { width: 100%; }
