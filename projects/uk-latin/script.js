@@ -17,13 +17,13 @@ var u_letters = {
     'ѕѕ': 'dzz',
     'џџ': 'dgg',
     // disounds
-    'щ': 'ctc',
     'ц': 'ts',
     'ч': 'tc',
     'я': 'ja',
     'ю': 'ju',
     'є': 'je',
     'ї': 'ji',
+    'щ': 'ctc',
     // vuk
     'џ': 'dg',
     'ѕ': 'dz',
@@ -55,6 +55,8 @@ var u_letters = {
     'х': 'x',
     'ш': 'c',
     'ь': 'j',
+    // other
+    'ў': 'v',
 }
 
 var s_letters = swap(u_letters)
