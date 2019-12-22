@@ -10,19 +10,12 @@ var bigs = smalls.toUpperCase()
 var apostrophe = 'ʼ'
 var apostrophes = '\'ʼ`’'
 
-var u_softs = {
-    'я': 'ьа',
-    'ю': 'ьу',
-    'є': 'ье',
-    'ї': 'ьі',
-}
-
-var u_iots = swap(u_softs)
-
 var u_letters = {
     // long sounds
     'чч': 'tcc',
     'цц': 'tss',
+    'ѕѕ': 'dzz',
+    'џџ': 'dgg',
     // disounds
     'щ': 'ctc',
     'ц': 'ts',
@@ -107,8 +100,7 @@ function cyrillic() {
 
     /** Переноси, апострофуванье і відјотуванье*/
     document.getElementById('result').innerHTML = result
-        .replace(new RegExp('([ ' + small_v + '])ь', 'g'), '$1й')
-        // .replace(new RegExp('([пбвфкґхгм])ь', 'g'), '$1ʼй')
-        .replace(new RegExp('([ ' + small_v.toUpperCase() + '])Ь', 'g'), '$1Й')
+        .replace(new RegExp('([ .' + small_v + 'пбвфкґхгм' + '])ь', 'g'), '$1й')
+        .replace(new RegExp('([ .' + (small_v + 'пбвфкґхгм').toUpperCase() + '])Ь', 'g'), '$1Й')
         .replace(/\n\r?/g, '<br />')
 }
