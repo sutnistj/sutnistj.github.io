@@ -108,6 +108,8 @@ function toCyrillic(str) {
         .replace(/\n\r?/g, '<br />');
 }
 
-if (module) {
+
+// export necessary modules for jest
+if (typeof module !== "undefined") {
     module.exports = { toLatin, toCyrillic };
 }
