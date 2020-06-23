@@ -1,22 +1,10 @@
-/** keys */
-
-var small_c = 'бвгґджзклмнпрстфхцчшщџѕ'
-var small_v = 'аяеєіїийьјоую'
-var smalls = small_c + small_v
-
-var big_c = small_c.toUpperCase()
-var bigs = smalls.toUpperCase()
-
-var apostrophe = 'ʼ'
-var apostrophes = '\'ʼ`’'
-
-var u_letters = {
+var letters = {
     // long sounds
     'чч': 'tcc',
     'цц': 'tss',
     'ѕѕ': 'dzz',
     'џџ': 'dgg',
-    // disounds
+    // polisounds
     'щ': 'ctc',
     'ц': 'ts',
     'ч': 'tc',
@@ -28,7 +16,7 @@ var u_letters = {
     'џ': 'dg',
     'ѕ': 'dz',
     'ј': 'j',
-    // 'ў': 'v',
+    'ў': 'v̆',
     // clear
     'а': 'a',
     'б': 'b',
@@ -55,10 +43,17 @@ var u_letters = {
     'ф': 'f',
     'х': 'x',
     'ш': 'c',
-    'ь': 'j',
+    // with dead accents to cyrillic soft accents
+    'á': 'а́',
+    'é': 'е́',
+    'ý': 'и́',
+    'ú': 'у́',
+    'í': 'і́',
+    'ó': 'о́'
 }
 
-var s_letters = swap(u_letters)
+var soft = 'ндтѕцџчзсжшлр'
+soft += soft.toUpperCase()
 
 function swap(object) {
     var re_object = {}
@@ -71,37 +66,58 @@ function swap(object) {
 function latin() {
     var result = document.getElementById('send').value
 
-    /** Основна перебуква */
-    for (letter in u_letters) {
-        var trans = u_letters[letter]
+    /* Lines and palatalization */
+    result = result
+        .replace(new RegExp('([' + soft + '])й', 'g'), '$1-j')
+        .replace(new RegExp('([' + soft + '])Й', 'g'), '$1-J')
+        .replace(/ь/g, 'j')
+        .replace(/Ь/g, 'J')
+        .replace(/\n\r?/g, '<br />')
+
+    /* Main transliteration */
+    for (letter in letters) {
+        var klad = letters[letter]
         result = result
-            .replace(new RegExp(letter, 'g'), trans)
-            /** Великі */
-            .replace(new RegExp(letter.toUpperCase(), 'g'), trans[0].toUpperCase() + trans.slice(1))
+            .replace(new RegExp(letter, 'g'), klad)
+            /* Big letters */
+            .replace(new RegExp(letter.toUpperCase(), 'g'), klad[0].toUpperCase() + klad.slice(1))
     }
 
-    /** Переноси і відʼапострофуванє */
     document.getElementById('result').innerHTML = result
-        .replace(/\n\r?/g, '<br />')
-        .replace(new RegExp('[' + apostrophes + ']', 'g'), '')
 }
 
 function cyrillic() {
     var result = document.getElementById('send').value
 
-    /** Основна перебуква */
-    for (letter in s_letters) {
-        var trans = s_letters[letter]
+    var bukvy = swap(letters)
+    /* Main transliteration */
+    for (bukva in bukvy) {
+        var klad = bukvy[bukva]
         result = result
-            .replace(new RegExp(letter, 'g'), trans)
-            /** Великі */
-            .replace(new RegExp(letter[0].toUpperCase() + letter.slice(1), 'g'), trans.toUpperCase())
+            .replace(new RegExp(bukva, 'g'), klad)
+            /* Big letters */
+            .replace(new RegExp(bukva[0].toUpperCase() + bukva.slice(1), 'g'), klad.toUpperCase())
     }
 
+    /* Lines and palatalization */
+    result = result
+        .replace(new RegExp('([' + soft + '])й', 'g'), '$1ь')
+        .replace(new RegExp('([' + soft + '])Й', 'g'), '$1Ь')
+        .replace(/\n\r?/g, '<br>')
 
-    /** Переноси, апострофуванье і відјотуванье*/
     document.getElementById('result').innerHTML = result
-        .replace(new RegExp('([ .' + small_v + 'пбвфкґхгм' + '])ь', 'g'), '$1й')
-        .replace(new RegExp('([ .' + (small_v + 'пбвфкґхгм').toUpperCase() + '])Ь', 'g'), '$1Й')
-        .replace(/\n\r?/g, '<br />')
+}
+
+function nothing() {
+    document.getElementById('send').value = ""
+    document.getElementById('result').innerHTML = ""
+}
+
+function clipboard() {
+    var range = document.createRange();
+    range.selectNode(document.getElementById('result'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
 }
