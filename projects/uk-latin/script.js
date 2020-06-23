@@ -4,6 +4,17 @@ var letters = {
     'цц': 'tss',
     'ѕѕ': 'dzz',
     'џџ': 'dgg',
+    // with dead accents to cyrillic soft accents
+    'я́': 'já',
+    'ю́': 'jú',
+    'є́': 'jé',
+    'ї́': 'jí',
+    'а́': 'á',
+    'е́': 'é',
+    'и́': 'ý',
+    'у́': 'ú',
+    'і́': 'í',
+    'о́': 'ó',
     // polisounds
     'щ': 'ctc',
     'ц': 'ts',
@@ -43,13 +54,6 @@ var letters = {
     'ф': 'f',
     'х': 'x',
     'ш': 'c',
-    // with dead accents to cyrillic soft accents
-    'á': 'а́',
-    'é': 'е́',
-    'ý': 'и́',
-    'ú': 'у́',
-    'í': 'і́',
-    'ó': 'о́'
 }
 
 var soft = 'ндтѕцџчзсжшлр'
