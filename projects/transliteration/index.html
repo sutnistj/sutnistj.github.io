@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+    <!-- global -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- local -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Transliteration | Linden Top</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header role="navigation" class="masthead mb-auto">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand grey" href="../../index.html">🌳</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">Main</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../pages/about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <div class="container-fluid mt-2">
+        <!-- <h1 class="display-4">Transliteration</h1> -->
+        <form>
+            <div class="form-inline align-items-center mt-1 mb-2">
+                <select name="from" id="from" class="form-control selectpicker">
+                    <option>Cyrillic</option>
+                    <option>Glagolitic</option>
+                    <option selected="selected">Latin</option>
+                    <option>Shavian</option>
+                </select>
+                <button type="button" class="btn btn-link" title="Swap" onclick="swapValueOfSelections()">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+                <select name="to" id="to" class="form-control">
+                    <option selected="selected">Cyrillic</option>
+                    <option>Glagolitic</option>
+                    <option>Latin</option>
+                    <option>Shavian</option>
+                </select>
+                <button type="button" class="btn btn-link" title="Transliterate : Ctrl + Enter @ textarea"
+                    onclick="sendValueOfTextarea()">
+                    <i class="fas fa-check"></i>
+                </button>
+                <button type="button" class="btn btn-link" title="Copy result" onclick="copyResultToClipboard()">
+                    <i class="fas fa-copy"></i>
+                </button>
+                <button type="button" class="btn btn-link" title="Clear all" onclick="eraseTextareaAndResult()">
+                    <i class="fas fa-eraser"></i>
+                </button>
+            </div>
+        </form>
+        <textarea id="send" class="form-control" rows="10"></textarea>
+        <div id="result" class="m-2"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- non-local -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- local -->
+    <script src="js/objects.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
