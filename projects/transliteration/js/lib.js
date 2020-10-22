@@ -28,8 +28,9 @@ function transliteration(from, to, value) { // string, string, string
             + '(?=[\\s,.:;"\']|$)'
 
         // Iotation
-        let lowerSoft = '([' + softLetters + '])' + iotaSign
-        let upperSoft = '([' + upCase(softLetters) + '])' + upCase(iotaSign)
+        let lowerSoft = '([' + softLetters + upCase(to, softLetters) + '])' + iotaSign
+        let upperSoft = '([' + upCase(to, softLetters) + '])' + upCase(to, iotaSign)
+        // console.log(lowerSoft);
 
         value = value
             .normalize('NFD')
@@ -37,7 +38,7 @@ function transliteration(from, to, value) { // string, string, string
             .replace(new RegExp(partlyIn, 'g'), partlyOut)
             .replace(new RegExp(letter[from], 'g'), letter[to])
             .replace(new RegExp(lowerSoft, 'g'), '$1' + softSign)
-            .replace(new RegExp(upperSoft, 'g'), '$1' + upCase(softSign))
+            .replace(new RegExp(upperSoft, 'g'), '$1' + upCase(to, softSign))
     }
     return value
 } // string
