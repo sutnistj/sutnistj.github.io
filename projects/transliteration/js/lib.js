@@ -11,10 +11,8 @@ function transliteration(from, to, value) { // string, string, string
 
     var upCaseLetters = upCase(from, getLetters(from)) + upCase(to, getLetters(to))
     var softLetters = getLetters(to, 'Soft');
-    var iotaSign = getLetters(to, 'Jot')
+    var iotaSign = getLetters(to, 'Iota sign')
     var softSign = getLetters(to, 'Soft sign')
-
-    console.log('test');
 
     for (letter of scripts) {
         if (isUnderfined([letter[from], letter[to]])) { continue }
@@ -45,7 +43,10 @@ function transliteration(from, to, value) { // string, string, string
 } // string
 
 function upCase(script, symbol = letter[script], all = true) { // string, string, boolean
-    if (isUnderfined(symbol)) return
+    if (isUnderfined(symbol)) {
+        console.log('Err @ upCase(): `symbol` = ', symbol)
+        return ''
+    }
     switch (script) {
         case 'Shavian': {
             symbol = all ? '·' + [...symbol].join('·') : '·' + symbol
@@ -57,7 +58,7 @@ function upCase(script, symbol = letter[script], all = true) { // string, string
         }
     }
     return symbol
-} // string
+} // string (can be empty)
 
 function isUnderfined(value) { // any
     switch (typeof value) {

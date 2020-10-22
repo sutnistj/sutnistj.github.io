@@ -115,7 +115,7 @@ scripts = [
     // Specific
     {
         'Param': [
-            'Jot',
+            'Iota sign',
         ],
         'Cyrillic': 'й'.normalize('NFD'),
         'Glagolitic': 'ⰹ',
