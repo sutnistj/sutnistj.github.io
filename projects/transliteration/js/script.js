@@ -22,7 +22,7 @@ function sendValueOfTextarea() {
     var to = valueOfSelection('to')
     var from = valueOfSelection('from')
     var value = document.getElementById('send').value
-    printResult(to === from ? value : transliteration(from, to, value))
+    printResult(to === from ? value : transliteration(from, to, value.normalize('NFD')))
 }
 
 /* Hotkeys */

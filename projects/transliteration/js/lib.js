@@ -8,39 +8,30 @@ function printResult(string) { // string
 }
 
 function transliteration(from, to, value) { // string, string, string
-
-    var upCaseLetters = upCase(from, getLetters(from)) + upCase(to, getLetters(to))
-    var softLetters = getLetters(to, 'Soft');
-    var iotaSign = getLetters(to, 'Iota sign')
-    var softSign = getLetters(to, 'Soft sign')
+    let exception = '[0-9' + upCase(from, getLetters(from)) + upCase(to, getLetters(to)) + '\-]'
 
     for (letter of scripts) {
         if (isUnderfined([letter[from], letter[to]])) { continue }
-
-        // Party uppercase
-        let partlyIn = upCase(from, letter[from], false)
-        let partlyOut = upCase(to, letter[to], false)
-
-        // Full uppercase
-        let exception = '([' + '0-9\-' + upCaseLetters + ']{0,})'
-        let fullIn = '(?<=[\\s,.:;"\']|^)'
-            + exception + upCase(from) + exception
-            + '(?=[\\s,.:;"\']|$)'
-
-        // Iotation
-        let lowerSoft = '([' + softLetters + upCase(to, softLetters) + '])' + iotaSign
-        let upperSoft = '([' + upCase(to, softLetters) + '])' + upCase(to, iotaSign)
-        // console.log(lowerSoft);
+        // Uppercase: partly & full
+        let fullInBefore = '(' + exception + '{0,})' + upCase(from) + '(' + exception + '{1,})'
+        let fullInAfter = '(' + exception + '{1,})' + upCase(from) + '(' + exception + '{0,})'
 
         value = value
-            .normalize('NFD')
-            .replace(new RegExp(fullIn, 'g'), '$1' + upCase(to) + '$2')
-            .replace(new RegExp(partlyIn, 'g'), partlyOut)
+            .replace(new RegExp(fullInBefore, 'g'), '$1' + upCase(to) + '$2')
+            .replace(new RegExp(fullInAfter, 'g'), '$1' + upCase(to) + '$2')
+            .replace(new RegExp(upCase(from, letter[from], false), 'g'), upCase(to, letter[to], false))
             .replace(new RegExp(letter[from], 'g'), letter[to])
-            .replace(new RegExp(lowerSoft, 'g'), '$1' + softSign)
-            .replace(new RegExp(upperSoft, 'g'), '$1' + upCase(to, softSign))
     }
+    // Iotation
+    let softLetters = getLetters(to, 'Soft');
+    let iotaSign = getLetters(to, 'Iota sign')
+    let softSign = getLetters(to, 'Soft sign')
+    let lowerSoft = '([' + softLetters + upCase(to, softLetters) + '])' + iotaSign
+    let upperSoft = '([' + upCase(to, softLetters) + '])' + upCase(to, iotaSign)
+
     return value
+        .replace(new RegExp(lowerSoft, 'g'), '$1' + softSign)
+        .replace(new RegExp(upperSoft, 'g'), '$1' + upCase(to, softSign))
 } // string
 
 function upCase(script, symbol = letter[script], all = true) { // string, string, boolean
