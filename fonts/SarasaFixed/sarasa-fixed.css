@@ -1,0 +1,419 @@
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 700;
+    font-style: normal;
+    src: url(sarasa-fixed-cl-bold.tff) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 700;
+    font-style: italic;
+    src: url(sarasa-fixed-cl-bolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 200;
+    font-style: normal;
+    src: url(sarasa-fixed-cl-extralight.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 200;
+    font-style: italic;
+    src: url(sarasa-fixed-cl-extralightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 400;
+    font-style: italic;
+    src: url(sarasa-fixed-cl-italic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 300;
+    font-style: normal;
+    src: url(sarasa-fixed-cl-light.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 300;
+    font-style: italic;
+    src: url(sarasa-fixed-cl-lightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 400;
+    font-style: normal;
+    src: url(sarasa-fixed-cl-regular.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 600;
+    font-style: normal;
+    src: url(sarasa-fixed-cl-semibold.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed CL';
+    font-weight: 600;
+    font-style: italic;
+    src: url(sarasa-fixed-cl-semibolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 700;
+    font-style: normal;
+    src: url(sarasa-fixed-hc-bold.tff) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 700;
+    font-style: italic;
+    src: url(sarasa-fixed-hc-bolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 200;
+    font-style: normal;
+    src: url(sarasa-fixed-hc-extralight.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 200;
+    font-style: italic;
+    src: url(sarasa-fixed-hc-extralightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 400;
+    font-style: italic;
+    src: url(sarasa-fixed-hc-italic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 300;
+    font-style: normal;
+    src: url(sarasa-fixed-hc-light.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 300;
+    font-style: italic;
+    src: url(sarasa-fixed-hc-lightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 400;
+    font-style: normal;
+    src: url(sarasa-fixed-hc-regular.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 600;
+    font-style: normal;
+    src: url(sarasa-fixed-hc-semibold.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed HC';
+    font-weight: 600;
+    font-style: italic;
+    src: url(sarasa-fixed-hc-semibolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 700;
+    font-style: normal;
+    src: url(sarasa-fixed-j-bold.tff) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 700;
+    font-style: italic;
+    src: url(sarasa-fixed-j-bolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 200;
+    font-style: normal;
+    src: url(sarasa-fixed-j-extralight.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 200;
+    font-style: italic;
+    src: url(sarasa-fixed-j-extralightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 400;
+    font-style: italic;
+    src: url(sarasa-fixed-j-italic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 300;
+    font-style: normal;
+    src: url(sarasa-fixed-j-light.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 300;
+    font-style: italic;
+    src: url(sarasa-fixed-j-lightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 400;
+    font-style: normal;
+    src: url(sarasa-fixed-j-regular.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 600;
+    font-style: normal;
+    src: url(sarasa-fixed-j-semibold.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed J';
+    font-weight: 600;
+    font-style: italic;
+    src: url(sarasa-fixed-j-semibolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 700;
+    font-style: normal;
+    src: url(sarasa-fixed-k-bold.tff) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 700;
+    font-style: italic;
+    src: url(sarasa-fixed-k-bolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 200;
+    font-style: normal;
+    src: url(sarasa-fixed-k-extralight.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 200;
+    font-style: italic;
+    src: url(sarasa-fixed-k-extralightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 400;
+    font-style: italic;
+    src: url(sarasa-fixed-k-italic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 300;
+    font-style: normal;
+    src: url(sarasa-fixed-k-light.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 300;
+    font-style: italic;
+    src: url(sarasa-fixed-k-lightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 400;
+    font-style: normal;
+    src: url(sarasa-fixed-k-regular.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 600;
+    font-style: normal;
+    src: url(sarasa-fixed-k-semibold.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed K';
+    font-weight: 600;
+    font-style: italic;
+    src: url(sarasa-fixed-k-semibolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 700;
+    font-style: normal;
+    src: url(sarasa-fixed-sc-bold.tff) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 700;
+    font-style: italic;
+    src: url(sarasa-fixed-sc-bolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 200;
+    font-style: normal;
+    src: url(sarasa-fixed-sc-extralight.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 200;
+    font-style: italic;
+    src: url(sarasa-fixed-sc-extralightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 400;
+    font-style: italic;
+    src: url(sarasa-fixed-sc-italic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 300;
+    font-style: normal;
+    src: url(sarasa-fixed-sc-light.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 300;
+    font-style: italic;
+    src: url(sarasa-fixed-sc-lightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 400;
+    font-style: normal;
+    src: url(sarasa-fixed-sc-regular.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 600;
+    font-style: normal;
+    src: url(sarasa-fixed-sc-semibold.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed SC';
+    font-weight: 600;
+    font-style: italic;
+    src: url(sarasa-fixed-sc-semibolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 700;
+    font-style: normal;
+    src: url(sarasa-fixed-tc-bold.tff) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 700;
+    font-style: italic;
+    src: url(sarasa-fixed-tc-bolditalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 200;
+    font-style: normal;
+    src: url(sarasa-fixed-tc-extralight.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 200;
+    font-style: italic;
+    src: url(sarasa-fixed-tc-extralightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 400;
+    font-style: italic;
+    src: url(sarasa-fixed-tc-italic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 300;
+    font-style: normal;
+    src: url(sarasa-fixed-tc-light.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 300;
+    font-style: italic;
+    src: url(sarasa-fixed-tc-lightitalic.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 400;
+    font-style: normal;
+    src: url(sarasa-fixed-tc-regular.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 600;
+    font-style: normal;
+    src: url(sarasa-fixed-tc-semibold.ttf) format(ttf);
+}
+
+@font-face {
+    font-family: 'Sarasa Fixed TC';
+    font-weight: 600;
+    font-style: italic;
+    src: url(sarasa-fixed-tc-semibolditalic.ttf) format(ttf);
+}
