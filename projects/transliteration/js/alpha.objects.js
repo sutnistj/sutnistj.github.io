@@ -1,4 +1,4 @@
-scripts = [
+exports.scripts = [
     // Long sounds
     {
         'Param': [
@@ -84,52 +84,73 @@ scripts = [
     },
     {
         'Cyrillic': 'є',
-        'Glagolitic': 'ⰹⰅ',
+        'Glagolitic': {
+            'Common': 'ⰹⰅ',
+            'Soft': 'ⱐⰅ'
+        },
         'Latin': 'je',
-        'Shavian': '𐑘𐑧',
+        'Shavian': {
+            'Common': '𐑘𐑧',
+            'Soft': '𐑢𐑧'
+        }
     },
     {
         'Cyrillic': 'ї'.normalize('NFD'),
         'Glagolitic': 'ⱑ',
         'Latin': 'ji',
-        'Shavian': '𐑘𐑰',
+        'Shavian': {
+            'Common': '𐑘𐑰',
+            'Soft': '𐑢𐑰'
+        }
     },
     {
         'Cyrillic': 'ю',
         'Glagolitic': 'ⱓ',
         'Latin': 'ju',
-        'Shavian': '𐑘𐑵',
+        'Shavian': {
+            'Common': '𐑘𐑵',
+            'Soft': '𐑢𐑵'
+        }
     },
     {
         'Cyrillic': 'я',
         'Glagolitic': 'ⱔ',
         'Latin': 'ja',
-        'Shavian': '𐑘𐑨',
+        'Shavian': {
+            'Common': '𐑘𐑨',
+            'Soft': '𐑢𐑨'
+        }
     },
     {
-        'Cyrillic': 'йо'.normalize('NFD'),
+        'Cyrillic': {
+            'Common': 'йо'.normalize('NFD'),
+            'Soft': 'ьо'
+        },
         'Glagolitic': 'ⱖ',
         'Latin': 'jo',
-        'Shavian': '𐑘𐑴',
+        'Shavian': {
+            'Common': '𐑘𐑴',
+            'Soft': '𐑢𐑴'
+        }
     },
     // Specific
     {
         'Param': [
-            'Iota sign',
+            'Palatal sign',
         ],
-        'Cyrillic': 'й'.normalize('NFD'),
-        'Glagolitic': 'ⰹ',
+        'Cyrillic': {
+            'Common': 'й'.normalize('NFD'),
+            'Soft': 'ь'
+        },
+        'Glagolitic': {
+            'Common': 'ⰹ',
+            'Soft': 'ⱐ'
+        },
         'Latin': 'j',
-        'Shavian': '𐑘',
-    },
-    {
-        'Param': [
-            'Soft sign',
-        ],
-        'Cyrillic': 'ь',
-        'Glagolitic': 'ⱐ',
-        'Latin': 'j',
-        'Shavian': '𐑢',
+        'Shavian': {
+            'Common': '𐑘',
+            'Soft': '𐑢'
+        },
     },
     {
         'Cyrillic': 'ґ',

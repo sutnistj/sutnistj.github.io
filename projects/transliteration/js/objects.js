@@ -1,4 +1,4 @@
-exports.scripts = [
+scripts = [
     // Long sounds
     {
         'Param': [
@@ -84,73 +84,52 @@ exports.scripts = [
     },
     {
         'Cyrillic': 'є',
-        'Glagolitic': {
-            'Common': 'ⰹⰅ',
-            'Soft': 'ⱐⰅ'
-        },
+        'Glagolitic': 'ⰹⰅ',
         'Latin': 'je',
-        'Shavian': {
-            'Common': '𐑘𐑧',
-            'Soft': '𐑢𐑧'
-        }
+        'Shavian': '𐑘𐑧',
     },
     {
         'Cyrillic': 'ї'.normalize('NFD'),
         'Glagolitic': 'ⱑ',
         'Latin': 'ji',
-        'Shavian': {
-            'Common': '𐑘𐑰',
-            'Soft': '𐑢𐑰'
-        }
+        'Shavian': '𐑘𐑰',
     },
     {
         'Cyrillic': 'ю',
         'Glagolitic': 'ⱓ',
         'Latin': 'ju',
-        'Shavian': {
-            'Common': '𐑘𐑵',
-            'Soft': '𐑢𐑵'
-        }
+        'Shavian': '𐑘𐑵',
     },
     {
         'Cyrillic': 'я',
         'Glagolitic': 'ⱔ',
         'Latin': 'ja',
-        'Shavian': {
-            'Common': '𐑘𐑨',
-            'Soft': '𐑢𐑨'
-        }
+        'Shavian': '𐑘𐑨',
     },
     {
-        'Cyrillic': {
-            'Common': 'йо'.normalize('NFD'),
-            'Soft': 'ьо'
-        },
+        'Cyrillic': 'йо'.normalize('NFD'),
         'Glagolitic': 'ⱖ',
         'Latin': 'jo',
-        'Shavian': {
-            'Common': '𐑘𐑴',
-            'Soft': '𐑢𐑴'
-        }
+        'Shavian': '𐑘𐑴',
     },
     // Specific
     {
         'Param': [
-            'Palatal sign',
+            'Iota sign',
         ],
-        'Cyrillic': {
-            'Common': 'й'.normalize('NFD'),
-            'Soft': 'ь'
-        },
-        'Glagolitic': {
-            'Common': 'ⰹ',
-            'Soft': 'ⱐ'
-        },
+        'Cyrillic': 'й'.normalize('NFD'),
+        'Glagolitic': 'ⰹ',
         'Latin': 'j',
-        'Shavian': {
-            'Common': '𐑘',
-            'Soft': '𐑢'
-        },
+        'Shavian': '𐑘',
+    },
+    {
+        'Param': [
+            'Soft sign',
+        ],
+        'Cyrillic': 'ь',
+        'Glagolitic': 'ⱐ',
+        'Latin': 'j',
+        'Shavian': '𐑢',
     },
     {
         'Cyrillic': 'ґ',
