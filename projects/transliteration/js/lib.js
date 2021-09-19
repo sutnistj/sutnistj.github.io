@@ -1,89 +1,99 @@
-function valueOfSelection(id) { // string
+o = require('./objects')
+
+/**
+ * @param {string} id
+ * @returns {string}
+ */
+function valueOfSelection(id) {
     let selObj = document.getElementById(id)
     return selObj.options[selObj.selectedIndex].text
-} // string
+}
 
-function printResult(string) { // string
+/**
+ * @param {string} string
+ */
+function printResult(string) {
     document.getElementById('result').innerHTML = string.replace(/\n\r?/g, '<br />')
 }
 
-function transliteration(from, to, value) { // string, string, string
-    let exception = '[0-9' + upCase(from, getLetters(from)) + upCase(to, getLetters(to)) + '\-]'
+/**
+ * @param {string} fromScript script name
+ * @param {string} toScript script name
+ * @param {string} value material for transliteration
+ * @returns {string} result of transliteration
+ */
+function transliteration(fromScript, toScript, value) {
+    let params = getConstParams(fromScript, toScript)
+    for (letter of o.scripts) {
+        if (typeof letter[fromScript] == 'object') {}
 
-    for (letter of scripts) {
-        if (isUnderfined([letter[from], letter[to]])) { continue }
-        // Uppercase: partly & full
-        let fullInBefore = '(' + exception + '{0,})' + upCase(from) + '(' + exception + '{1,})'
-        let fullInAfter = '(' + exception + '{1,})' + upCase(from) + '(' + exception + '{0,})'
-
-        value = value
-            .replace(new RegExp(fullInBefore, 'g'), '$1' + upCase(to) + '$2')
-            .replace(new RegExp(fullInAfter, 'g'), '$1' + upCase(to) + '$2')
-            .replace(new RegExp(upCase(from, letter[from], false), 'g'), upCase(to, letter[to], false))
-            .replace(new RegExp(letter[from], 'g'), letter[to])
+        
     }
-    // Iotation
-    let softLetters = getLetters(to, 'Soft');
-    let iotaSign = getLetters(to, 'Iota sign')
-    let softSign = getLetters(to, 'Soft sign')
-    let lowerSoft = '([' + softLetters + upCase(to, softLetters) + '])' + iotaSign
-    let upperSoft = '([' + upCase(to, softLetters) + '])' + upCase(to, iotaSign)
+}
 
-    return value
-        .replace(new RegExp(lowerSoft, 'g'), '$1' + softSign)
-        .replace(new RegExp(upperSoft, 'g'), '$1' + upCase(to, softSign))
-} // string
+const rmDup = e => [...new Set(e)].sort().join("");
 
-function upCase(script, symbol = letter[script], all = true) { // string, string, boolean
-    if (isUnderfined(symbol)) {
-        console.log('Err @ upCase(): `symbol` = ', symbol)
-        return ''
+function simpleChange(from, to) {
+}
+
+// function getConstParams(from, to) {
+//     let softLetters = rmDup(letters([from, to], 'Soft'))
+
+//     /**
+//      * Big Letters
+//      * Lower Soft Letters
+//      * Upper Softt Letter
+//      */
+//     let params = {
+//         'bl': '[-0-9' + rmDup(letters([from, to]).toUpperCase()) + ']',
+//         'ls': new RegExp('([' + softLetters + softLetters.toUpperCase() + '])', 'g'),
+//         'us': new RegExp('([' + softLetters.toUpperCase() + '])', 'g'),
+//     }
+//     return params
+// }
+
+// function getVarParams(from, to) {
+//     /**
+//      * Full In Before
+//      * Full In After
+//      */
+//     return {
+//         'fib': new RegExp('(' + p['bl'] + '{0,})' + from.toUpperCase() + '(' + p['bl'] + '{1,})', g),
+//         'fia': new RegExp('(' + p['bl'] + '{1,})' + from.toUpperCase() + '(' + p['bl'] + '{0,})', g)
+//     }
+
+//     // value = value
+//     //     .replace(new RegExp(upCase(from, letter[from], false), 'g'), upCase(to, letter[to], false))
+//     //     .replace(new RegExp(letter[from], 'g'), letter[to])
+// }
+
+function letters(calls, param = true) {
+    let string = ''
+    if (typeof calls == "string") {
+        calls = [calls]
     }
-    switch (script) {
-        case 'Shavian': {
-            symbol = all ? '·' + [...symbol].join('·') : '·' + symbol
-            break
-        }
-        default: {
-            symbol = all ? symbol.toUpperCase() : symbol[0].toUpperCase() + symbol.slice(1)
-            break
-        }
-    }
-    return symbol
-} // string (can be empty)
-
-function isUnderfined(value) { // any
-    switch (typeof value) {
-        case 'object': {
-            if (value === undefined) { return true }
-            for (i of value) if (i === undefined) { return true }
-            return false
-        }
-        default: {
-            return value === undefined ? true : false
-        }
-    }
-} // boolean
-
-function getLetters(script, param = 'all') { // array, string
-    var string = ''
-    switch (param) {
-        case 'all': {
-            for (letter of scripts) {
-                if (isUnderfined(letter[script])) { continue }
-                string += letter[script]
+    for (call of calls) {
+        for (letter of o.scripts) {
+            let params = {
+                "boolean": true,
+                "string": letter['Param'] && letter['Param'].includes(param)
             }
-            break
-        }
-        default: {
-            for (letter of scripts) {
-                if (isUnderfined(letter[script])
-                    || isUnderfined(letter['Param'])
-                    || letter['Param'].indexOf(param) < 0) { continue }
-                string += letter[script]
+            if (!params[typeof param]) { continue }
+            switch (typeof letter[call]) {
+                case 'string': {
+                    string += letter[call]
+                    break
+                }
+                case 'object': {
+                    string += Object.values(letter[call]).join('')
+                }
             }
-            break
         }
     }
     return string
-} // string
+}
+
+// console.log(letters(['Cyrillic', 'Latin'],'Soft'))
+// console.log(o.scripts)
+
+transliteration('Latin', 'Cyrillic', 'Hello')
